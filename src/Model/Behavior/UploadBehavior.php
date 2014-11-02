@@ -57,35 +57,45 @@ class UploadBehavior extends Behavior {
  */
 	public function beforeSave(Event $event, Entity $entity) {
 		$config = $this->_config;
+
 		foreach ($config['fields'] as $field => $fieldOption) {
 			$data = $entity->toArray();
 			$virtualField = $field . $config['suffix'];
+
 			if (!isset($data[$virtualField]) || !is_array($data[$virtualField])) {
 				continue;
 			}
+
 			$file = $entity->get($virtualField);
 			if ((int)$file['error'] === UPLOAD_ERR_NO_FILE) {
 				continue;
 			}
+
 			if (!isset($fieldOption['path'])) {
 				throw new \LogicException(__('The path for the {0} field is required.', $field));
 			}
+
 			if (isset($fieldOption['prefix']) && (is_bool($fieldOption['prefix']) || is_string($fieldOption['prefix']))) {
 				$this->_prefix = $fieldOption['prefix'];
 			}
+
 			$extension = (new File($file['name'], false))->ext();
 			$uploadPath = $this->_getUploadPath($entity, $fieldOption['path'], $extension);
 			if (!$uploadPath) {
 				throw new \ErrorException(__('Error to get the uploadPath.'));
 			}
+
 			$folder = new Folder($this->_config['root']);
 			$folder->create($this->_config['root'] . dirname($uploadPath));
+
 			if ($this->_moveFile($entity, $file['tmp_name'], $uploadPath, $field, $fieldOption)) {
 				if (!$this->_prefix) {
 					$this->_prefix = '';
 				}
+
 				$entity->set($field, $this->_prefix . $uploadPath);
 			}
+
 			$entity->unsetProperty($virtualField);
 		}
 	}
@@ -105,16 +115,21 @@ class UploadBehavior extends Behavior {
 		if ($source === false || $destination === false || $field === false) {
 			return false;
 		}
+
 		if (isset($options['overwrite']) && is_bool($options['overwrite'])) {
 			$this->_overwrite = $options['overwrite'];
 		}
-		$file = new File($source, false, 0755);
+
 		if ($this->_overwrite) {
 			$this->_deleteOldUpload($entity, $field, $destination, $options);
 		}
+
+		$file = new File($source, false, 0755);
+
 		if ($file->copy($this->_config['root'] . $destination, $this->_overwrite)) {
 			return true;
 		}
+
 		return false;
 	}
 
@@ -136,23 +151,30 @@ class UploadBehavior extends Behavior {
 		if ($field === false || $newFile === false) {
 			return true;
 		}
+
 		$fileInfo = pathinfo($entity->$field);
 		$newFileInfo = pathinfo($newFile);
+
 		if (isset($options['defaultFile']) && (is_bool($options['defaultFile']) || is_string($options['defaultFile']))) {
 			$this->_defaultFile = $options['defaultFile'];
 		}
+
 		if ($fileInfo['basename'] == $newFileInfo['basename'] ||
 			$fileInfo['basename'] == pathinfo($this->_defaultFile)['basename']) {
 			return true;
 		}
+
 		if ($this->_prefix) {
 			$entity->$field = str_replace($this->_prefix, "", $entity->$field);
 		}
+
 		$file = new File($this->_config['root'] . $entity->$field, false);
+
 		if ($file->exists()) {
 			$file->delete();
 			return true;
 		}
+
 		return false;
 	}
 
@@ -177,13 +199,16 @@ class UploadBehavior extends Behavior {
 		if ($extension === false || $path === false) {
 			return false;
 		}
+
 		$path = trim($path, DS);
+
 		$identifiers = [
 			':id' => $entity->id,
 			':md5' => md5(rand() . uniqid() . time()),
 			':y' => date('Y'),
 			':m' => date('m')
 		];
+
 		return strtr($path, $identifiers) . '.' . strtolower($extension);
 	}
 }
