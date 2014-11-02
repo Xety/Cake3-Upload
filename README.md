@@ -1,12 +1,12 @@
 # Cake3 Upload
 A Cake3 plugin to Upload files.
 
-[![Build Status](https://img.shields.io/travis/Xety/Cake3-Upload.svg?style=flat-square)](https://travis-ci.org/Xety/Xeta)
-[![Coverage Status](https://img.shields.io/coveralls/Xety/Cake3-Upload/master.svg?style=flat-square)](https://coveralls.io/r/xety/xeta)
-[![Scrutinizer](https://img.shields.io/scrutinizer/g/Xety/Cake3-Upload.svg?style=flat-square)](https://scrutinizer-ci.com/g/Xety/Xeta)
-[![Latest Stable Version](https://img.shields.io/packagist/v/Xety/Cake3-Upload.svg?style=flat-square)](https://packagist.org/packages/xety/xeta)
-[![Total Downloads](https://img.shields.io/packagist/dt/xety/cake3-upload.svg?style=flat-square)](https://packagist.org/packages/xety/xeta)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://packagist.org/packages/xety/xeta)
+[![Build Status](https://img.shields.io/travis/Xety/Cake3-Upload.svg?style=flat-square)](https://travis-ci.org/Xety/Cake3-Upload)
+[![Coverage Status](https://img.shields.io/coveralls/Xety/Cake3-Upload/master.svg?style=flat-square)](https://coveralls.io/r/xety/Cake3-Upload)
+[![Scrutinizer](https://img.shields.io/scrutinizer/g/Xety/Cake3-Upload.svg?style=flat-square)](https://scrutinizer-ci.com/g/Xety/Cake3-Upload)
+[![Latest Stable Version](https://img.shields.io/packagist/v/Xety/Cake3-Upload.svg?style=flat-square)](https://packagist.org/packages/xety/cake3-upload)
+[![Total Downloads](https://img.shields.io/packagist/dt/xety/cake3-upload.svg?style=flat-square)](https://packagist.org/packages/xety/cake3-upload)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://packagist.org/packages/xety/cake3-upload)
 
 ## Requirements
 * CakePHP 3.X
