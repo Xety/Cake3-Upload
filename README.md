@@ -1,5 +1,5 @@
 # Cake3 Upload
-A Cake3 plugin to Upload files.
+A Cake3 plugin to upload files.
 
 [![Build Status](https://img.shields.io/travis/Xety/Cake3-Upload.svg?style=flat-square)](https://travis-ci.org/Xety/Cake3-Upload)
 [![Coverage Status](https://img.shields.io/coveralls/Xety/Cake3-Upload/master.svg?style=flat-square)](https://coveralls.io/r/xety/Cake3-Upload)
@@ -27,7 +27,7 @@ Plugin::load('Xety/Cake3Upload');
 ```
 In your model `initialize()`:
 ``` php
-$this->addBehavior('Xety/Cake3Upload', [
+$this->addBehavior('Xety/Cake3Upload.Upload', [
 		'fields' => [
 			'avatar' => [
 				'path' => 'upload/avatar/:id/:md5'
@@ -52,7 +52,7 @@ To create an input to upload a file, just use the this rule : **fieldName_file**
 * ### suffix
     Default : `_file`
 
-    You can chage the suffix *_file* to your own suffix :
+    You can change the suffix *_file* to your own suffix :
     ``` php
     $this->addBehavior('Upload', [
     		'fields' => [
@@ -119,7 +119,7 @@ To create an input to upload a file, just use the this rule : **fieldName_file**
     If you use a custom directory at the root of the *webroot* directory and you use the `HtmlHelper` to display your image, you can set a prefix like this :
     ``` php
     /**
-     * The path look like this :
+     * The path will look like this :
      *       webroot/upload/avatar
      *
      * In the database, the record will look like that :
@@ -140,3 +140,6 @@ To create an input to upload a file, just use the this rule : **fieldName_file**
     <?= $this->Html->image($User->avatar) ?>
     // Output : <img src="/img/../upload/avatar/1/bbebb3c3c5e76a46c3dca92c9395ee65.png" alt="">
     ```
+
+## Contribute
+[Follow this guide to contribute](https://github.com/Xety/Cake3-Upload/blob/master/CONTRIBUTING.md)
