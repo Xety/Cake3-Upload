@@ -36,17 +36,30 @@ $this->addBehavior('Xety/Cake3Upload.Upload', [
 	]
 );
 ```
+Set your form to accept files
+``` php
+	$this->Form->create($foo, ['type'=>'file']);
+	// .. or ..
+	$this->Form->create($foo, ['enctype' => 'multipart/form-data']);
+```
+To create an input to upload a file, just use the this rule : **fieldName_file**. Example :
+``` php
+<?= $this->Form->input('avatar_file', ['type' => 'file']) ?>
+```
+If specified in your Entity, add the suffixed field (e.g. `avatar_file`) to the `$_accessible` array:
+``` php
+	protected $_accessible = [
+		# ..
+        	'avatar_field' => true,
+        	# ..
+        	];
+```
 
 ### Identifiers
 * **:id** Id of the Entity (It can be the user Id if you are using this for the users table for example)
 * **:md5** A random and unique identifier with 32 characters. i.e : *bbebb3c3c5e76a46c3dca92c9395ee65*
 * **:y** Based on the current year. i.e : *2014*
 * **:m** Based on the current month. i.e : *09*
-
-To create an input to upload a file, just use the this rule : **fieldName_file**. Example :
-``` php
-<?= $this->Form->input('avatar_file', ['type' => 'file']) ?>
-```
 
 ## Configuration
 * ### suffix
