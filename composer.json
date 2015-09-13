@@ -1,37 +1,38 @@
 {
-	"name": "xety/cake3-upload",
-	"type": "cakephp-plugin",
-	"description": "Cake3 plugin to upload files.",
-	"keywords": ["cakephp", "cake3", "plugin", "upload", "file"],
-	"homepage": "https://github.com/Xety/Cake3-Upload",
-	"license": "MIT",
-	"support":{
-		"source":"https://github.com/Xety/Cake3-Upload",
-		"issues":"https://github.com/Xety/Cake3-Upload/issues"
-	},
-	"authors": [
-		{
-			"name": "Xety",
-			"email": "zoro.fmt@gmail.com",
-			"homepage": "https://github.com/Xety"
-		}
-	],
-	"require": {
-		"php": ">=5.4.0"
-	},
-	"require-dev": {
-		"cakephp/cakephp": "3.0.*-dev",
-		"phpunit/phpunit": "4.1.*"
-	},
-	"autoload": {
-		"psr-4": {
-			"Xety\\Cake3Upload\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Xety\\Cake3Upload\\Test\\": "tests"
-		}
-	}
+    "name": "xety/cake3-upload",
+    "type": "cakephp-plugin",
+    "description": "Cake3 plugin to upload files.",
+    "keywords": ["cakephp", "cake3", "plugin", "upload", "file"],
+    "homepage": "https://github.com/Xety/Cake3-Upload",
+    "license": "MIT",
+    "support":{
+        "source":"https://github.com/Xety/Cake3-Upload",
+        "issues":"https://github.com/Xety/Cake3-Upload/issues"
+    },
+    "authors": [
+        {
+            "name": "Xety",
+            "email": "zoro.fmt@gmail.com",
+            "homepage": "https://github.com/Xety"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.16",
+        "cakephp/cakephp": "~3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "cakephp/cakephp-codesniffer": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xety\\Cake3Upload\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xety\\Cake3Upload\\Test\\": "tests"
+        }
+    }
 
 }
