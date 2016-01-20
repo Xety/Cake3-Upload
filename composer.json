@@ -18,9 +18,10 @@
     ],
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0"
+        "cakephp/orm": "3.*"
     },
     "require-dev": {
+        "cakephp/cakephp": "~3.0",
         "phpunit/phpunit": "*",
         "cakephp/cakephp-codesniffer": "dev-master"
     },
