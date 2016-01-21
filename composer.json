@@ -2,7 +2,7 @@
     "name": "xety/cake3-upload",
     "type": "cakephp-plugin",
     "description": "Cake3 plugin to upload files.",
-    "keywords": ["cakephp", "cake3", "plugin", "upload", "file"],
+    "keywords": ["cakephp", "cake3", "plugin", "upload", "file", "orm"],
     "homepage": "https://github.com/Xety/Cake3-Upload",
     "license": "MIT",
     "support":{
@@ -18,9 +18,10 @@
     ],
     "require": {
         "php": ">=5.4.16",
-        "cakephp/cakephp": "~3.0"
+        "cakephp/orm": "3.*"
     },
     "require-dev": {
+        "cakephp/cakephp": "~3.0",
         "phpunit/phpunit": "*",
         "cakephp/cakephp-codesniffer": "dev-master"
     },
